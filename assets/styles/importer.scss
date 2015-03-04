@@ -29,8 +29,10 @@
 //
 // etc.
 
-@import 'homepage.scss';
-@import 'login.scss';
-@import 'home.scss';
-@import 'register.scss';
+@import '../bower_components/normalize.css/normalize.css';
+// @import '/Users/charleslueker/Documents/Iron Yard/sails-template';
+// @import '../bower_components/ionicons/scss/ionicons';
+@import 'global';
+@import 'nav';
+@import 'login';
 

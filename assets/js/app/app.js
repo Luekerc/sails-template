@@ -1,19 +1,24 @@
-angular.module('app', ['app.controllers','ui.router'])
-.config(function($stateProvider){
+angular.module('app', ['app.controllers', 'ui.router'])
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+	// $locationProvider.html5Mode(true);
+
 	$stateProvider
-	.state('home',{
-		url: '/home',
+	.state('home', {
+		url: '/',
 		templateUrl: 'templates/home.html',
-		controller: 'homeCTRL'
+		controller: 'HomeCtrl'
 	})
-	.state('login',{
-		url: '/login',
+	.state('login', {
+		url: '/user/login',
 		templateUrl: 'templates/login.html',
-		controller: 'loginCTRL'
+		controller: 'LoginCtrl'
 	})
-	.state('register',{
-	url: '/register',
-	templateUrl: 'templates/register.html',
-	controller: 'registerCTRL'
-	})
-})
+	.state('register', {
+		url: '/user/register',
+		templateUrl: 'templates/register.html',
+		controller: 'RegisterCtrl'
+	});
+
+	$urlRouterProvider.otherwise('/');
+});

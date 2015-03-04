@@ -1,96 +1,45 @@
-angular.module('app.controllers',[])
-.controller('homeCTRL',function($scope){
-
-})
-
-.controller('loginCTRL',function($scope){
-	var emailPass=false;
-	var passPass=false;
-	var loginObject = {};
-	$scope.emailErrorMsg = false;
-	$scope.passwordErrorMsg = false;
-	$scope.email=function(eMail){
-		if (validator.isEmail(eMail)){
-			emailPass = true;
-			$scope.emailErrorMsg = false;
-		}else{
-			emailPass = false;
-			$scope.emailErrorMsg = true;
-		}
-	};
-	$scope.password=function(passWord){
-		if(validator.isNull(passWord)){
-			passPass=false;
-			$scope.passwordErrorMsg=true;
-		}else{
-			passPass =true;
-			$scope.passwordErrorMsg=false;
-		}
-	};
-		$scope.loginSubmit=function(username,password){
-			if(emailPass && passPass){
-				loginObject={
-					username: username,
-					email: username
-				};
-			}
-				console.log(loginObject);
-		};
+angular.module('app.controllers', ['app.services'])
+.controller('HomeCtrl', function($scope) {
 	
+})
+.controller('RegisterCtrl', function($scope, Validate) {
+	$scope.error = {
+		identifier: '',
+		password: ''
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
 
-	$scope.loginSubmit=function(username, password){
-		if(mail && pAsswOrd){
-			loginObject={
-					identifier: username,
-					password: password
+	$scope.register = function(credentials) {
+		$scope.error = Validate.credentials(credentials);
+
+		if(!Validate.hasError($scope.error)) {
+			var registerObj = {
+				username: credentials.identifier,
+				email: credentials.identifier,
+				password: credentials.password
 			};
-		}	console.log(loginObject);
+			console.log(registerObj);
+		}
+	};
+})
+.controller('LoginCtrl', function($scope, Validate) {
+	$scope.error = {
+		identifier: '',
+		password: ''
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
+
+	$scope.login = function(credentials) {
+		$scope.error = Validate.credentials(credentials);
+
+		if(!Validate.hasError($scope.error)) {
+			console.log(credentials);
+		}
 	};
 });
-
-
-.controller('registerCTRL',function($scope){
-		var emailPass=false;
-		var passPass = false;
-		var loginObject={};
-		$scope.emailErrorMsg = false;
-		$scope.passwordErrorMsg = false;
-
-		$scope.email=function(eMail){
-		if (validator.isEmail(eMail)){
-			emailPass = true;
-			$scope.emailErrorMsg = false;
-		}else{
-			emailPass = false;
-			$scope.emailErrorMsg = true;
-		}
-	};
-	$scope.password=function(passWord){
-		if(validator.isNull(passWord)){
-			passPass=false;
-			$scope.passwordErrorMsg=true;
-		}else{
-			passPass =true;
-			$scope.passwordErrorMsg=false;
-		}
-	};
-		$scope.loginSubmit=function(username,password){
-			if(emailPass && passPass){
-				loginObject={
-					username: username;
-					email: username;
-				};
-			}
-				console.log(loginObject);
-		};
-	});
-
-	$scope.loginSubmit=function(username, password){
-		if(mail && pAsswOrd){
-			loginObject={
-					identifier: username,
-					password: password
-			};
-		}	console.log(loginObject);
-	};
-})
