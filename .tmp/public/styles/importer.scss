@@ -29,6 +29,10 @@
 //
 // etc.
 
-.test {
-	color: blue;
-}
+@import '../bower_components/normalize.css/normalize.css';
+// @import '/Users/charleslueker/Documents/Iron Yard/sails-template';
+// @import '../bower_components/ionicons/scss/ionicons';
+@import 'global';
+@import 'nav';
+@import 'login';
+
