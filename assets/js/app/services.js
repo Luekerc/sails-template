@@ -1,7 +1,7 @@
 angular.module('app.services', [])
 .factory('Validate', function() {
 	return {
-		credentials: function(credentials) {
+		creDentials: function(credentials) {
 			var error = {
 				identifier: '',
 				password: ''

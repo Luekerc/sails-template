@@ -4,7 +4,7 @@ this["JST"]["assets/templates/home.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '\n';
+__p += '<h1> Welcome Home!!!  You have logged in Successfully.</h1>\n';
 
 }
 return __p

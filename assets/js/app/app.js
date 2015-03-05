@@ -18,6 +18,11 @@ angular.module('app', ['app.controllers', 'ui.router'])
 		url: '/user/register',
 		templateUrl: 'templates/register.html',
 		controller: 'RegisterCtrl'
+	})
+	.state('assignment',{
+		url: '/user/assignment',
+		templateUrl: 'templates/assignment.html',
+		controller: 'AssignmentCtrl'
 	});
 
 	$urlRouterProvider.otherwise('/');

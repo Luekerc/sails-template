@@ -36,7 +36,7 @@ angular.module('app.controllers', ['app.services'])
 	};
 
 	$scope.login = function(credentials) {
-		$scope.error = Validate.credentials(credentials);
+		$scope.error = Validate.creDentials(credentials);
 
 		if(!Validate.hasError($scope.error)) {
 			console.log(credentials);
